@@ -12,11 +12,13 @@ node('any') {
   def nexusReleaseURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/maven-releases/"
   def mavenRepoURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/#browse/browse:maven-all-public/"
   def projectNamePrefix = ""
-  def projectName_SIT = "${projectNamePrefix}rhdm-sit"
+  def projectName_SIT = "${projectNamePrefix}demo"
   def kieserver_keystore_password="mykeystorepass"
 
   // ** NOTE: This 'M3' maven tool must be configured in the global configuration
   //def mvnHome = tool 'M2'
+
+
 
   
   stage('Checkout Source') {
