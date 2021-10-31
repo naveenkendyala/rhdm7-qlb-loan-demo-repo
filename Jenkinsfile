@@ -5,7 +5,7 @@
 // the getVersionFromPom will attempt to read the version information that it encounter at the
 // first occurance.
 
-node('maven') {
+node('any') {
 
   def mvnCmd = "mvn -s openshift-nexus-settings.xml"
   // Need to use the public domain name instead of the internal service name, else server host not found error will appear. Suspect if I have multiple Nexus deployed into different projects on a share environment.
