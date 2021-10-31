@@ -10,6 +10,7 @@
   <description>RHDM 7.11.0 demo - Loan Pre-approval Decision Service for Quick Loan Bank</description>
   <properties>
     <version.org.kie>7.52.0.Final-redhat-00008</version.org.kie>
+    <ba.version>7.11.1.redhat-00001</ba.version>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
@@ -19,7 +20,7 @@
       <dependency>
           <groupId>com.redhat.ba</groupId>
           <artifactId>ba-platform-bom</artifactId>
-          <version>7.11.1.redhat-00001</version>
+          <version>${ba.version}</version>
           <scope>import</scope>
           <type>pom</type>
       </dependency>
@@ -80,7 +81,7 @@
       <artifactId>drools-workbench-models-guided-dtable</artifactId>
       <version>${version.org.kie}</version>
       <scope>test</scope>
-    </dependency>
+    </dependency> 
   </dependencies>
 
   <distributionManagement>
@@ -103,12 +104,12 @@
       </plugin>      
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>3.8.1</version>
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
         </configuration>
-      </plugin>
+      </plugin>      
     </plugins>
   </build>
 </project>
