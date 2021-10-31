@@ -14,6 +14,10 @@ node('maven') {
   def projectNamePrefix = ""
   def projectName_SIT = "${projectNamePrefix}rhdm-sit"
   def kieserver_keystore_password="mykeystorepass"
+
+  // ** NOTE: This 'M3' maven tool must be configured in the global configuration
+  def mvnHome = tool 'M2'
+
   
   stage('Checkout Source') {
     checkout scm
@@ -30,7 +34,7 @@ node('maven') {
 //  }
   
     stage('Build KJar') {
-    sh "${mvnCmd} package -DskipTests=true"
+    sh "${mvnHome}/bin/mvn package -DskipTests=true"
   }
 
   stage('Publish KJar to Nexus') {
