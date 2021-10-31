@@ -34,7 +34,7 @@ node('maven') {
 //  }
   
     stage('Build KJar') {
-    sh "${mvnHome}/bin/mvn -s openshift-nexus-settings.xml package -DskipTests=true"
+    sh "${mvnHome}/bin/mvn -s openshift-nexus-settings.xml package -DskipTests=true -X"
   }
 
   stage('Publish KJar to Nexus') {
