@@ -7,7 +7,7 @@
 
 node('maven') {
 
-  def mvnCmd = "mvn -s ./openshift-nexus-settings.xml"
+  def mvnCmd = "mvn -s openshift-nexus-settings.xml"
   // Need to use the public domain name instead of the internal service name, else server host not found error will appear. Suspect if I have multiple Nexus deployed into different projects on a share environment.
   def nexusReleaseURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/releases/"
   def mavenRepoURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/maven-all-public/"
