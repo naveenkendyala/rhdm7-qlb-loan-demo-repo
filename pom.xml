@@ -20,6 +20,7 @@
         <artifactId>rhdm-platform-bom</artifactId>
         <version>${version.org.kie}</version>
         <scope>import</scope>
+        <type>pom</type>
       </dependency>
 		</dependencies>
 	</dependencyManagement>
