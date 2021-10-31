@@ -85,11 +85,17 @@
   </dependencies>
 
   <distributionManagement>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Nexus Repository</name>
+      <url>http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/maven-snapshots/</url>
+      <layout>default</layout>
+    </snapshotRepository>
     <repository>
       <uniqueVersion>false</uniqueVersion>
-      <id>nexus</id>
+      <id>releases</id>
       <name>Nexus Repository</name>
-      <url>http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/releases/</url>
+      <url>http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/maven-releases/</url>
       <layout>default</layout>
     </repository>
   </distributionManagement>  
