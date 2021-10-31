@@ -29,9 +29,9 @@ node('maven') {
   def version    = getVersionFromPom("pom.xml")
   def packageName = getGeneratedPackageName(groupId, artifactId, version)
   
-//  stage('Clean Project') {
-//    sh "${mvnCmd} clean"
-//  }
+ stage('Clean Project') {
+   sh "${mvnHome}/bin/mvn clean"
+ }
   
     stage('Build KJar') {
     sh "${mvnHome}/bin/mvn -s openshift-nexus-settings.xml package -DskipTests=true -X"
