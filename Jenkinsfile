@@ -10,7 +10,7 @@ node('maven') {
   def mvnCmd = "mvn -s openshift-nexus-settings.xml"
   // Need to use the public domain name instead of the internal service name, else server host not found error will appear. Suspect if I have multiple Nexus deployed into different projects on a share environment.
   def nexusReleaseURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/releases/"
-  def mavenRepoURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/maven-all-public/"
+  def mavenRepoURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/#browse/browse:maven-all-public/"
   def projectNamePrefix = ""
   def projectName_SIT = "${projectNamePrefix}rhdm-sit"
   def kieserver_keystore_password="mykeystorepass"
@@ -39,7 +39,7 @@ node('maven') {
     // https://issues.apache.org/jira/browse/MDEPLOY-244?focusedCommentId=16648217&page=com.atlassian.jira.plugin.system.issuetabpanels%3Acomment-tabpanel#comment-16648217
     // https://support.sonatype.com/hc/en-us/articles/360010223594-maven-deploy-plugin-version-3-0-0-M1-deploy-fails-with-401-ReasonPhrase-Unauthorized
     // sh "${mvnCmd} deploy -DskipTests=true -DaltDeploymentRepository=nexus::default::${nexusReleaseURL}"
-    sh "${mvnCmd} deploy -DskipTests=true -DaltDeploymentRepository=nexus::${nexusReleaseURL}"
+    sh "${mvnCmd} deploy -DskipTests=true -DaltDeploymentRepository=nexus::default::${nexusReleaseURL}"
     echo "Generated jar file: ${packageName}"
   }
 
