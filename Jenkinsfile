@@ -30,7 +30,7 @@ node('maven') {
   def packageName = getGeneratedPackageName(groupId, artifactId, version)
   
  stage('Clean Project') {
-   sh "${mvnHome}/bin/mvn clean"
+   sh "${mvnHome}/bin/mvn clean -s openshift-nexus-settings.xml"
  }
   
     stage('Build KJar') {
