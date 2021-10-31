@@ -25,9 +25,9 @@ node('maven') {
   def version    = getVersionFromPom("pom.xml")
   def packageName = getGeneratedPackageName(groupId, artifactId, version)
   
-  stage('Clean Project') {
-    sh "${mvnCmd} clean"
-  }
+//  stage('Clean Project') {
+//    sh "${mvnCmd} clean"
+//  }
   
     stage('Build KJar') {
     sh "${mvnCmd} package -DskipTests=true"
