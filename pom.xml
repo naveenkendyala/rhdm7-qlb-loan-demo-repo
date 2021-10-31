@@ -13,8 +13,6 @@
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
-
-
   <dependencies>
     <dependency>
       <groupId>org.kie</groupId>
@@ -95,6 +93,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>nexus</id>
+      <name>Nexus Repository</name>
+      <url>http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/releases/</url>
+      <layout>default</layout>
+    </repository>
+  </distributionManagement>  
 
   <build>
     <plugins>
