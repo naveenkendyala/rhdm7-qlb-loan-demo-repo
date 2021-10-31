@@ -72,7 +72,7 @@ node('maven') {
     }
     else{
       echo "Rollout POD to have the container to use the lastest build jar from nexus repo..."
-      sh "oc rollout latest dc/travel-insurance-rules-kieserver -n ${projectName_SIT}"
+      sh "oc rollout latest dc/qlb-loan-demo-kieserver -n ${projectName_SIT}"
     }
   }
 
