@@ -8,16 +8,30 @@
   <name>loan-pre-approval</name>
   <description>RHDM 7.11.0 demo - Loan Pre-approval Decision Service for Quick Loan Bank</description>
   <properties>
-    <version.org.kie>7.48.0.Final-redhat-00006</version.org.kie>
+    <version.org.kie>7.52.0.Final-redhat-00008</version.org.kie>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
   </properties>
+
   <dependencyManagement>
-    <dependencies>
-    </dependencies>
-  </dependencyManagement>
+		<dependencies>
+      <dependency>
+        <groupId>org.jboss.bom.rhdm</groupId>
+        <artifactId>rhdm-platform-bom</artifactId>
+        <version>${version.org.kie}</version>
+        <scope>import</scope>
+      </dependency>
+		</dependencies>
+	</dependencyManagement>
+
   <dependencies>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-api</artifactId>
+      <version>${version.org.kie}</version>
+    </dependency>  
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
