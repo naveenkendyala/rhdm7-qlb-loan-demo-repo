@@ -13,8 +13,6 @@ node('maven') {
   def mavenRepoURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/#browse/browse:maven-all-public/"
   def demoProjectName = "demo"
   def kieserver_keystore_password="mykeystorepass"
-  def KIE_ADMIN_USER="admin"
-  def KIE_ADMIN_PWD="admin"
 
   // ** NOTE: This 'M2' maven tool must be configured in the global configuration
   //def mvnHome = tool 'M2'
@@ -66,7 +64,7 @@ node('maven') {
         sh "oc create secret generic kieserver-app-secret --from-file=./keystore.jks -n ${demoProjectName}"
       }
       echo "Deploying Decision Server into OCP ..."
-      sh "oc new-app -f ./templates/rhpam711-prod-immutable-kieserver.yaml -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p APPLICATION_NAME=qlb-loan-demo -p KIE_SERVER_HTTPS_PASSWORD=${kieserver_keystore_password} -p KIE_SERVER_CONTAINER_DEPLOYMENT=qlb-rules=com.redhat.demo.qlb:loan-pre-approval:${version} -p KIE_SERVER_MGMT_DISABLED=true -p MAVEN_REPO_URL=${nexusReleaseURL} -p MAVEN_REPO_USERNAME=admin -p MAVEN_REPO_PASSWORD=admin123 -p KIE_ADMIN_USER=${KIE_ADMIN_USER} -p KIE_ADMIN_PWD=${KIE_ADMIN_PWD} -n ${demoProjectName}"
+      sh "oc new-app -f ./templates/rhpam711-prod-immutable-kieserver.yaml -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p APPLICATION_NAME=qlb-loan-demo -p KIE_SERVER_HTTPS_PASSWORD=${kieserver_keystore_password} -p KIE_SERVER_CONTAINER_DEPLOYMENT=qlb-rules=com.redhat.demo.qlb:loan-pre-approval:${version} -p KIE_SERVER_MGMT_DISABLED=true -p MAVEN_REPO_URL=${nexusReleaseURL} -p MAVEN_REPO_USERNAME=admin -p MAVEN_REPO_PASSWORD=admin123 -n ${demoProjectName}"
       //sh "oc new-app -f ./templates/rhdm73-kieserver.yaml -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p APPLICATION_NAME=travel-insurance-rules -p KIE_SERVER_HTTPS_PASSWORD=${kieserver_keystore_password} -p KIE_SERVER_CONTAINER_DEPLOYMENT=tinsurance-rules=com.myspace:insurance-rules-demo:1.0.0 -p KIE_SERVER_MODE=DEVELOPMENT -p KIE_SERVER_MGMT_DISABLED=true -p KIE_SERVER_STARTUP_STRATEGY=LocalContainersStartupStrategy -p MAVEN_REPO_URL=${nexusReleaseURL} -p MAVEN_REPO_USERNAME=admin -p MAVEN_REPO_PASSWORD=admin123 -n ${demoProjectName} -p MAVEN_MIRROR_URL=${mavenRepoURL}"
     }
     else{
