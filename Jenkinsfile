@@ -67,7 +67,7 @@ node('maven') {
 
       }
       echo "Deploying Decision Server into OCP ..."
-      sh "oc new-app -f ./templates/rhpam711-prod-immutable-kieserver.yaml -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p APPLICATION_NAME=qlb-loan-demo -p KIE_SERVER_HTTPS_PASSWORD=${kieserver_keystore_password} -p KIE_SERVER_CONTAINER_DEPLOYMENT=qlb-rules=com.redhat.demo.qlb:loan-pre-approval:${version} -p KIE_SERVER_MGMT_DISABLED=true -p MAVEN_REPO_URL=${nexusReleaseURL} -p MAVEN_REPO_USERNAME=admin -p MAVEN_REPO_PASSWORD=admin123 -n ${demoProjectName}"
+      sh "oc new-app -f ./templates/rhpam711-prod-immutable-kieserver.yaml -p CREDENTIALS_SECRET=rhpam-credentials -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p APPLICATION_NAME=qlb-loan-demo -p KIE_SERVER_HTTPS_PASSWORD=${kieserver_keystore_password} -p KIE_SERVER_CONTAINER_DEPLOYMENT=qlb-rules=com.redhat.demo.qlb:loan-pre-approval:${version} -p KIE_SERVER_MGMT_DISABLED=true -p MAVEN_REPO_URL=${nexusReleaseURL} -p MAVEN_REPO_USERNAME=admin -p MAVEN_REPO_PASSWORD=admin123 -n ${demoProjectName}"
       //sh "oc new-app -f ./templates/rhdm73-kieserver.yaml -p KIE_SERVER_HTTPS_SECRET=kieserver-app-secret -p APPLICATION_NAME=travel-insurance-rules -p KIE_SERVER_HTTPS_PASSWORD=${kieserver_keystore_password} -p KIE_SERVER_CONTAINER_DEPLOYMENT=tinsurance-rules=com.myspace:insurance-rules-demo:1.0.0 -p KIE_SERVER_MODE=DEVELOPMENT -p KIE_SERVER_MGMT_DISABLED=true -p KIE_SERVER_STARTUP_STRATEGY=LocalContainersStartupStrategy -p MAVEN_REPO_URL=${nexusReleaseURL} -p MAVEN_REPO_USERNAME=admin -p MAVEN_REPO_PASSWORD=admin123 -n ${demoProjectName} -p MAVEN_MIRROR_URL=${mavenRepoURL}"
     }
     else{
