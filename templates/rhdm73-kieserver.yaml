@@ -105,12 +105,12 @@ parameters:
 - displayName: KIE Server ImageStream Name
   description: The name of the image stream to use for KIE server. Default is "rhdm73-kieserver-openshift".
   name: KIE_SERVER_IMAGE_STREAM_NAME
-  value: "rhdm73-kieserver-openshift"
+  value: "rhdm-kieserver-rhel8"
   required: true
 - displayName: ImageStream Tag
   description: A named pointer to an image in an image stream. Default is "1.1".
   name: IMAGE_STREAM_TAG
-  value: "1.1"
+  value: "7.10.1"
   required: true
 - displayName: KIE Server Controller User
   description: KIE server controller username. (Sets the org.kie.server.controller.user system property)
