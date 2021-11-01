@@ -13,6 +13,8 @@ node('maven') {
   def mavenRepoURL = "http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/#browse/browse:maven-all-public/"
   def demoProjectName = "demo"
   def kieserver_keystore_password="mykeystorepass"
+  def KIE_ADMIN_USER="admin"
+  def KIE_ADMIN_PWD="admin"
 
   // ** NOTE: This 'M2' maven tool must be configured in the global configuration
   //def mvnHome = tool 'M2'
