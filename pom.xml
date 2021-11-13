@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat.demo.qlb</groupId>
   <artifactId>loan-pre-approval</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <packaging>kjar</packaging>
   <name>loan-pre-approval</name>
   <description>RHDM 7.11.0 demo - Loan Pre-approval Decision Service for Quick Loan Bank</description>
