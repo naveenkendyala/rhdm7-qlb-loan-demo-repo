@@ -4,45 +4,28 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat.demo.qlb</groupId>
   <artifactId>loan-pre-approval</artifactId>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <packaging>kjar</packaging>
   <name>loan-pre-approval</name>
   <description>RHDM 7.11.0 demo - Loan Pre-approval Decision Service for Quick Loan Bank</description>
+  <distributionManagement>
+    <repository>
+      <id>dm-releases</id>
+      <name>Nexus Repository</name>
+      <url>http://nexus:8081/repository/dm-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>dm-releases</id>
+      <name>Nexus Repository</name>
+      <url>http://nexus:8081/repository/dm-releases/</url>
+    </snapshotRepository>
+  </distributionManagement>
   <properties>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
     <version.org.kie>7.52.0.Final-redhat-00008</version.org.kie>
     <ba.version>7.11.1.redhat-00001</ba.version>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
   </properties>
-<!--
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-          <groupId>com.redhat.ba</groupId>
-          <artifactId>ba-platform-bom</artifactId>
-          <version>${ba.version}</version>
-          <scope>import</scope>
-          <type>pom</type>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <distributionManagement>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>Nexus Repository</name>
-      <url>http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/maven-snapshots/</url>
-      <layout>default</layout>
-    </snapshotRepository>
-    <repository>
-      <uniqueVersion>false</uniqueVersion>
-      <id>releases</id>
-      <name>Nexus Repository</name>
-      <url>http://nexus-demo-nexus.apps.cluster-8408.8408.sandbox712.opentlc.com/repository/maven-releases/</url>
-      <layout>default</layout>
-    </repository>
-  </distributionManagement> 
--->
-
   <dependencies>
     <dependency>
       <groupId>org.kie</groupId>
@@ -91,40 +74,22 @@
       <artifactId>kie-ci</artifactId>
       <version>${version.org.kie}</version>
       <scope>test</scope>
-    </dependency>    
+    </dependency>
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-workbench-models-guided-dtable</artifactId>
       <version>${version.org.kie}</version>
       <scope>test</scope>
-    </dependency> 
+    </dependency>
   </dependencies>
-    
- <distributionManagement>
-    <repository>
-      <id>dm-releases</id>
-      <name>Nexus Repository</name>
-      <url>http://nexus:8081/repository/dm-releases/</url>
-      <layout>default</layout>
-    </repository>
-    <snapshotRepository>
-      <id>dm-releases</id>
-      <name>Nexus Repository</name>
-      <url>http://nexus:8081/repository/dm-releases/</url>
-      <layout>default</layout>
-    </snapshotRepository>
-  </distributionManagement>
-
- 
-
   <build>
-    <plugins>      
+    <plugins>
       <plugin>
         <groupId>org.kie</groupId>
         <artifactId>kie-maven-plugin</artifactId>
         <version>${version.org.kie}</version>
         <extensions>true</extensions>
-      </plugin>      
+      </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
@@ -132,7 +97,7 @@
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
         </configuration>
-      </plugin>      
+      </plugin>
     </plugins>
   </build>
 </project>
