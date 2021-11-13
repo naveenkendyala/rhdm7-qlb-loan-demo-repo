@@ -12,12 +12,12 @@
     <repository>
       <id>dm-releases</id>
       <name>Nexus Repository</name>
-      <url>http://nexus:8081/repository/dm-releases/</url>
+      <url>http://nexus:8081/repository/maven-releases/</url>
     </repository>
     <snapshotRepository>
       <id>dm-releases</id>
       <name>Nexus Repository</name>
-      <url>http://nexus:8081/repository/dm-releases/</url>
+      <url>http://nexus:8081/repository/maven-releases/</url>
     </snapshotRepository>
   </distributionManagement>
   <properties>
