@@ -23,6 +23,6 @@ rule "setting default values on Loan"
 	    _loan : Loan( )
 	then
         _loan.setApproved( false );
-        System.out.println("Rule fired New : [" + drools.getRule().getName()+"]");
+        System.out.println("Rule fired Newest : [" + drools.getRule().getName()+"]");
 	    
 end
